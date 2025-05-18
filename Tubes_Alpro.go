@@ -42,10 +42,7 @@ func main() {
 		} else if pilih == 6 {
 			laporanBidangUsaha()
 		} else if pilih == 7 {
-			fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
-			return
-		default:
-			fmt.Println("Pilihan tidak valid.")
+			return fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
 		}
 	}
 }
