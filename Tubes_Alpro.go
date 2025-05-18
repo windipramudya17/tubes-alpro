@@ -29,19 +29,19 @@ func main() {
 		fmt.Print("Pilih Menu : ")
 		fmt.Scan(&pilihan)
 
-		if pilih == 1 {
+		if pilihan == 1 {
 			tambahStartup()
-		} else if pilih == 2 {
+		} else if pilihan == 2 {
 			ubahStartup()
-		} else if pilih == 3 {
+		} else if pilihan == 3 {
 			hapusStartup()
-		} else if pilih == 4 {
+		} else if pilihan == 4 {
 			cariStartup()
-		} else if pilih == 5 {
+		} else if pilihan == 5 {
 			urutkanStartup()
-		} else if pilih == 6 {
+		} else if pilihan == 6 {
 			laporanBidangUsaha()
-		} else if pilih == 7 {
+		} else if pilihan == 7 {
 			return fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
 		}
 	}
