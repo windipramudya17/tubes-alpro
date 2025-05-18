@@ -42,7 +42,7 @@ func main() {
 		} else if pilihan == 6 {
 			laporanBidangUsaha()
 		} else if pilihan == 7 {
-			return fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
+			fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
 		}
 	}
 }
