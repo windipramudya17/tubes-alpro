@@ -29,24 +29,23 @@ func main() {
 		fmt.Print("Pilih Menu : ")
 		fmt.Scan(&pilihan)
 
-		switch pilihan {
-		case 1:
+		if pilih == 1 {
 			tambahStartup()
-		case 2:
+		} else if pilih == 2 {
 			ubahStartup()
-		case 3:
+		} else if pilih == 3 {
 			hapusStartup()
-		case 4:
+		} else if pilih == 4 {
 			cariStartup()
-		case 5:
+		} else if pilih == 5 {
 			urutkanStartup()
-		case 6:
+		} else if pilih == 6 {
 			laporanBidangUsaha()
-		case 7:
+		} else if pilih == 7 {
 			fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
 			return
 		default:
-			fmt.Println("Pilihan tidak valid")
+			fmt.Println("Pilihan tidak valid.")
 		}
 	}
 }
