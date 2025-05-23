@@ -42,6 +42,8 @@ func main() {
 		} else if pilihan == 6 {
 			laporanBidangUsaha()
 		} else if pilihan == 7 {
+			cariPendanaan()
+		}else if pilihan == 8 {
 			fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
 		}
 	}
@@ -55,7 +57,8 @@ func menu() {
 	fmt.Println("4. Cari Startup")
 	fmt.Println("5. Urutkan Data Startup")
 	fmt.Println("6. Laporan per Bidang Usaha")
-	fmt.Println("7. Keluar")
+	fmt.Println("7. Cari Pendanaan Tertinggi / Terendah")
+	fmt.Println("8. Keluar")
 }
 
 func tambahStartup() {
@@ -300,4 +303,31 @@ func tampilkanStartup(s Startup) {
 		fmt.Printf("  - %s (%s)\n", s.Tim[i].Nama, s.Tim[i].Peran)
 	}
 	fmt.Println("====================================")
+}
+
+func cariPendanaan() {
+	if jumlahStartup == 0 {
+		fmt.Println("Data kosong.")
+		return
+	}
+
+	fmt.Println("Cari: 1. Pendanaan Tertinggi 2. Pendanaan Terendah")
+	var pilihan int
+	fmt.Scan(&pilihan)
+
+	idx := 0
+	for i := 1; i < jumlahStartup; i++ {
+		if (pilihan == 1 && daftarStartup[i].TotalDana > daftarStartup[idx].TotalDana) {
+			idx = i
+		} else if (pilihan == 2 && daftarStartup[i].TotalDana < daftarStartup[idx].TotalDana) {
+			idx = i
+		}
+	}
+
+	if pilihan == 1 {
+		fmt.Println("Startup dengan pendanaan tertinggi:")
+	} else {
+		fmt.Println("Startup dengan pendanaan terendah:")
+	}
+	tampilkanStartup(daftarStartup[idx])
 }
