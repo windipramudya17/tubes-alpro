@@ -43,8 +43,10 @@ func main() {
 			laporanBidangUsaha()
 		} else if pilihan == 7 {
 			cariPendanaan()
-		}else if pilihan == 8 {
+		} else if pilihan == 8 {
 			fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
+		} else {
+			fmt.Println("Pilihan Tidak Valid")
 		}
 	}
 }
