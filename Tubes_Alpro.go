@@ -45,8 +45,10 @@ func main() {
 			cariPendanaan()
 		} else if pilihan == 8 {
 			fmt.Println("Terima Kasih Telah Menggunakan Aplikasi")
+			return
 		} else {
 			fmt.Println("Pilihan Tidak Valid")
+			return
 		}
 	}
 }
@@ -63,23 +65,64 @@ func menu() {
 	fmt.Println("8. Keluar")
 }
 
+func validasiNama(prompt string, maxLen int) string {
+	var input string
+	for {
+		fmt.Print(prompt)
+		fmt.Scan(&input)
+		if len(input) <= maxLen {
+			break
+		}
+		fmt.Printf("Input terlalu panjang (maks %d karakter)\n", maxLen)
+	}
+	return input
+}
+
+func validasiJumlah(prompt string, min, max int) int {
+	var input int
+	for {
+		fmt.Print(prompt)
+		fmt.Scan(&input)
+		if input >= min && input <= max {
+			break
+		}
+		fmt.Printf("Input harus antara %d dan %d\n", min, max)
+	}
+	return input
+}
+
+func validasiDana(prompt string, min float64) float64 {
+	var input float64
+	for {
+		fmt.Print(prompt)
+		fmt.Scan(&input)
+		if input >= min {
+			break
+		}
+		fmt.Printf("Input tidak boleh kurang dari %.2f\n", min)
+	}
+	return input
+}
+
+func tampilkanPilihanUrutan() {
+	fmt.Println("Urutan: 1. Ascending 2. Descending")
+}
+
 func tambahStartup() {
 	if jumlahStartup >= NMAX {
 		fmt.Println("Data penuh")
 		return
 	}
-
 	var s Startup
-	fmt.Print("Nama Startup: ")
-	fmt.Scan(&s.Nama)
+
+	s.Nama = validasiNama("Nama Startup: ", 20)
+
 	fmt.Print("Bidang Usaha: ")
 	fmt.Scan(&s.BidangUsaha)
-	fmt.Print("Tahun Berdiri: ")
-	fmt.Scan(&s.TahunBerdiri)
-	fmt.Print("Total Pendanaan: ")
-	fmt.Scan(&s.TotalDana)
-	fmt.Print("Jumlah Anggota Tim: ")
-	fmt.Scan(&s.JumlahTim)
+
+	s.TahunBerdiri = validasiJumlah("Tahun Berdiri: ", 2000, 2025)
+	s.TotalDana = validasiDana("Total Pendanaan: ", 1000000)
+	s.JumlahTim = validasiJumlah("Jumlah Anggota Tim: ", 0, NMAX)
 
 	if s.JumlahTim > NMAX {
 		fmt.Println("Jumlah anggota tim melebihi batas maksimum")
