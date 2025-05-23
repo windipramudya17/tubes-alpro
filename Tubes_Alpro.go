@@ -267,7 +267,7 @@ func banding(a, b Startup, kriteria int, asc bool) bool {
 
 func laporanBidangUsaha() {
 	if jumlahStartup == 0 {
-		fmt.Println("Tidak ada data.")
+		fmt.Println("Tidak ada data")
 		return
 	}
 	fmt.Println("Laporan Startup per Bidang Usaha:")
@@ -307,7 +307,7 @@ func tampilkanStartup(s Startup) {
 
 func cariPendanaan() {
 	if jumlahStartup == 0 {
-		fmt.Println("Data kosong.")
+		fmt.Println("Tidak ada data")
 		return
 	}
 
