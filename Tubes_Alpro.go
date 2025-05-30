@@ -67,42 +67,46 @@ func menu() {
 
 func validasiNama(prompt string, maxLen int) string {
 	var input string
-	for {
+	var valid bool = false
+	for !valid {
 		fmt.Print(prompt)
 		fmt.Scan(&input)
-		if len(input) <= maxLen {
-			break
+		valid = len(input) <= maxLen
+		if !valid {
+			fmt.Printf("Input terlalu panjang (maks %d karakter)\n", maxLen)
 		}
-		fmt.Printf("Input terlalu panjang (maks %d karakter)\n", maxLen)
 	}
 	return input
 }
 
 func validasiJumlah(prompt string, min, max int) int {
 	var input int
-	for {
+	var valid bool = false
+	for !valid {
 		fmt.Print(prompt)
 		fmt.Scan(&input)
-		if input >= min && input <= max {
-			break
+		valid = input >= min && input <= max
+		if !valid {
+			fmt.Printf("Input harus antara %d dan %d\n", min, max)
 		}
-		fmt.Printf("Input harus antara %d dan %d\n", min, max)
 	}
 	return input
 }
 
 func validasiDana(prompt string, min float64) float64 {
 	var input float64
-	for {
+	var valid bool = false
+	for !valid {
 		fmt.Print(prompt)
 		fmt.Scan(&input)
-		if input >= min {
-			break
+		valid = input >= min
+		if !valid {
+			fmt.Printf("Input tidak boleh kurang dari %.2f\n", min)
 		}
-		fmt.Printf("Input tidak boleh kurang dari %.2f\n", min)
 	}
 	return input
 }
+
 
 func tampilkanPilihanUrutan() {
 	fmt.Println("Urutan: 1. Ascending 2. Descending")
