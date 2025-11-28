@@ -380,3 +380,4 @@ func cariPendanaan() {
 	}
 	tampilkanStartup(daftarStartup[idx])
 }
+
